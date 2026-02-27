@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="scripts.js"></script>
+    <title>Professional Resume Builder</title>
+  </head>
+  <body>
+    <!-- INPUT FORM -->
+    <div class="form-container">
+      <center><h2>Resume Builder</h2></center>
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          id="inpName"
+          placeholder="John Doe"
+          oninput="updateResume()"
+        />
+      </div>
+      <div class="form-group">
+        <label>Job Title</label>
+        <input
+          type="text"
+          id="inpTitle"
+          placeholder="Software Engineer"
+          oninput="updateResume()"
+        />
+      </div>
+      <div class="form-group">
+        <label>Email & Phone & Address</label>
+        <input
+          type="text"
+          id="inpContact"
+          placeholder="john@example.com | (555) 123-4567 | Street, District"
+          oninput="updateResume()"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label>Address</label>
+        <input
+          type="text"
+          id="inpAddress"
+          placeholder="123 Main St, City, State, ZIP"
+          oninput="updateResume()"
+        />
+      </div> -->
+
+      <div class="form-group">
+        <label>Professional Summary</label>
+        <textarea
+          id="inpSummary"
+          placeholder="Brief summary about yourself..."
+          oninput="updateResume()"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Skills <span>(Separate by comma)</span></label>
+        <textarea
+          id="inpSkills"
+          placeholder="HTML, CSS, JavaScript, Python..."
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">Tip: Use commas to separate items.</div>
+      </div>
+
+      <div class="form-group">
+        <label
+          >Work Experience
+          <span>(Format: Job Title; Company; Date; Description)</span></label
+        >
+        <textarea
+          id="inpExperience"
+          placeholder="Software Dev; Tech Corp; 2020-2023; Built websites..."
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">
+          Tip: Use semicolons (;) to separate details. Separate jobs with a new
+          line.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Education <span>(Format: Degree; School; Year)</span></label>
+        <textarea
+          id="inpEducation"
+          placeholder="BS Computer Science; University of Tech; 2019..."
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">Tip: Separate items with a new line.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Hobbie's <span>(Separate by comma)</span></label>
+        <textarea
+          id="inpHobbs"
+          placeholder="Reading, Traveling, Cooking..."
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">Tip: Separate items with a new line.</div>
+      </div>
+      <div class="form-group">
+        <label>Project's <span>(Separate by comma)</span></label>
+        <textarea
+          id="inpProj"
+          placeholder="Enter your Project's"
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">Tip: Separate items with a new line.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Language <span>(Separate by comma)</span></label>
+        <textarea
+          id="inpLang"
+          placeholder="English, Spanish, French..."
+          oninput="updateResume()"
+        ></textarea>
+        <div class="hint">Tip: Separate items with a new line.</div>
+      </div>
+
+      <button class="print-btn" onclick="window.print()">
+        Download PDF / Print
+      </button>
+    </div>
+
+    <!-- LIVE PREVIEW -->
+    <div class="preview-container">
+      <div class="resume-paper">
+        <!-- Header -->
+        <div class="resume-header">
+          <h3 id="outName">YOUR NAME</h3>
+          <div class="resume-contact" id="outTitle">Job Title</div>
+          <div class="resume-contact" id="outContact">
+            email@example.com | Phone | Address
+          </div>
+          <!-- <div class="resume-contact" id="outAddress">
+            123 Main St, City, State, ZIP
+          </div> -->
+        </div>
+
+        <!-- Summary -->
+        <div class="resume-section" id="secSummary">
+          <div class="resume-section-title">Profile</div>
+          <p class="resume-list" id="outSummary">A professional summary will appear here.</p>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-section" id="secSkills">
+          <div class="resume-section-title">Skill's</div>
+          <ul class="resume-list" id="outSkills">
+            <!-- JS will inject list items here -->
+          </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-section" id="secExperience">
+          <div class="resume-section-title">Work Experience's</div>
+          <div class="resume-list" id="outExperience">
+            <!-- JS will inject job blocks here -->
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="resume-section" id="secEducation">
+          <div class="resume-section-title">Education</div>
+          <ul class="resume-list" id="outEducation">
+            <!-- JS will inject list items here -->
+          </ul>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="resume-section" id="secHobbs">
+          <div class="resume-section-title">Hobbie's</div>
+          <ul class="resume-list" id="outHobbs">
+            <!-- JS will inject list items here -->
+          </ul>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section" id="secProj">
+          <div class="resume-section-title">Project's</div>
+          <ul class="resume-list" id="outProj">
+            <!-- JS will inject list items here -->
+          </ul>
+        </div>
+
+        <!-- Languages -->
+        <div class="resume-section" id="secLang">
+          <div class="resume-section-title">Language's</div>
+          <ul class="resume-list" id="outLang">
+            <!-- JS will inject list items here -->
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

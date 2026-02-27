@@ -1,0 +1,212 @@
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #3498db;
+  --bg-color: white;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+span{
+  color: #44444E; 
+  font-size: 0.6rem;
+}
+
+/* --- LEFT SIDE: FORM --- */
+.form-container {
+  width: 50%;
+  background: white;
+  padding: 10px;
+  overflow-y: auto;
+  border-right: 2px solid #ddd;
+}
+
+h2 {
+  color: #3498db;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #3498db;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+textarea {
+  resize: vertical;
+  height: 60px;
+}
+
+.hint {
+  font-size: 10px;
+  color: #44444E;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+button.print-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+button.print-btn:hover {
+  background-color: #3498db;
+}
+
+/* --- RIGHT SIDE: PREVIEW --- */
+.preview-container {
+  width: 50%;
+  background: #3498db;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+/* The A4 Paper Look */
+.resume-paper {
+  background: white;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 10mm 5mm;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  color: #44444E;
+}
+
+/* --- RESUME FORMATTING (THE OUTPUT) --- */
+.resume-header {
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  line-height: 1rem;
+}
+
+.resume-header h3 {
+  margin: 0;
+  color: #3498db;
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  letter-spacing: 1px;
+}
+
+.resume-contact {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #44444E;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.resume-section {
+  margin-bottom: 10px;
+}
+
+.resume-section-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3498db;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.resume-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-left:20px ;
+  font-size: 14px;
+  font-weight: bold;
+  color: #44444E;
+  margin: 5px 0;
+}
+
+/* Formatting Lists (Skills, Education, Experience) */
+ul.resume-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-left:20px ;
+  font-weight: bold;
+  color: #44444E;
+  margin: 5px 0;
+}
+
+ul.resume-list li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+  font-weight: bold;
+  color: #44444E;
+}
+
+.job-entry,
+.edu-entry {
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-weight: bold;
+}
+.job-company {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: bold;
+  color: #44444E;
+}
+.job-date {
+  font-size: 14px;
+  color: #44444E;
+  float: right;
+}
+
+/* --- PRINT STYLES --- */
+@media print {
+  body {
+    display: block;
+    height: auto;
+    overflow: visible;
+    background: white;
+  }
+  .form-container {
+    display: none;
+  }
+  .preview-container {
+    width: 100%;
+    padding: 0;
+    background: white;
+  }
+  .resume-paper {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+  }
+}
